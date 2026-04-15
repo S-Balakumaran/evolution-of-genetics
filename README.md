@@ -22,7 +22,7 @@ Wrong ideas are not failures — they are necessary commits in the history of tr
 
 ## How to Use
 
-Open index.html in a browser or visit the hosted version
+Open index.html in a browser or visit the hosted version here: https://s-balakumaran.github.io/evolution-of-genetics/
  
 
 ## Credit
