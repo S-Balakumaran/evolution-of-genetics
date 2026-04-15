@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>biology / evolution-of-genetics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+        
+        body { background-color: #0d1117; color: #c9d1d9; font-family: 'Inter', -apple-system, sans-serif; }
+        .github-dark-border { border: 1px solid #30363d; }
+        .tab-active { border-bottom: 2px solid #f78166; color: #f0f6fc; font-weight: 600; }
+        .hidden-tab { display: none; }
+        
+        /* Commit Graph Styling */
+        .commit-line { width: 2px; background: #30363d; position: absolute; left: 18px; top: 0; bottom: 0; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; background: #30363d; z-index: 10; border: 2px solid #0d1117; }
+        .details-panel { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: #1c2128; }
+        .expanded .details-panel { max-height: 250px; padding: 12px 16px 12px 48px; border-top: 1px solid #30363d; }
+        .rotate-icon { transition: transform 0.2s; }
+        .expanded .rotate-icon { transform: rotate(90deg); }
+
+        .badge { font-size: 10px; padding: 1px 6px; border-radius: 10px; font-weight: 600; text-transform: uppercase; }
+        .bg-breakthrough { background: #238636; color: #aff5b4; }
+        .bg-failed { background: #da3633; color: #ffd7d5; }
+        .bg-rediscovered { background: #8957e5; color: #d8b9ff; }
+        
+        code { font-family: 'JetBrains Mono', monospace; font-size: 0.85em; }
+    </style>
+</head>
+<body>
+
+<nav class="bg-[#010409] border-b border-[#30363d] px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+        <svg height="32" viewBox="0 0 16 16" width="32" fill="#f0f6fc"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg>
+        <div class="bg-[#0d1117] border border-[#30363d] rounded-md px-3 py-1 text-sm text-[#8b949e] w-64">Search or jump to...</div>
+    </div>
+</nav>
+
+<header class="bg-[#0d1117] border-b border-[#30363d] pt-4">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="flex items-center gap-2 text-xl mb-4">
+            <span class="text-[#58a6ff] hover:underline cursor-pointer">biology</span>
+            <span class="text-[#8b949e]">/</span>
+            <span class="font-semibold text-[#58a6ff] hover:underline cursor-pointer">evolution-of-genetics</span>
+            <span class="ml-2 text-xs border border-[#30363d] rounded-full px-2 text-[#8b949e]">Public</span>
+        </div>
+
+        <div class="flex gap-4 text-sm">
+            <button onclick="showTab('code')" id="btn-code" class="pb-3 px-2 tab-active">Code</button>
+            <button onclick="showTab('issues')" id="btn-issues" class="pb-3 px-2 text-[#8b949e]">Issues <span class="bg-[#30363d] px-2 rounded-full text-xs">4</span></button>
+            <button onclick="showTab('pulls')" id="btn-pulls" class="pb-3 px-2 text-[#8b949e]">Pull requests <span class="bg-[#30363d] px-2 rounded-full text-xs">1</span></button>
+            <button onclick="showTab('actions')" id="btn-actions" class="pb-3 px-2 text-[#8b949e]">Actions</button>
+        </div>
+    </div>
+</header>
+
+<main class="max-w-6xl mx-auto p-4 mt-4">
+
+    <section id="tab-code">
+        <div class="github-dark-border rounded-md overflow-hidden bg-[#161b22]">
+            <div class="p-3 border-b border-[#30363d] bg-[#0d1117] flex justify-between text-sm text-[#8b949e]">
+                <span>Commit History: 3.8 Billion Years of Development</span>
+                <span>Click to expand developer notes</span>
+            </div>
+
+            <div class="flex flex-col">
+                <div class="relative group cursor-pointer border-b border-[#30363d] hover:bg-[#1c2128]" onclick="this.classList.toggle('expanded')">
+                    <div class="commit-line"></div>
+                    <div class="flex items-center gap-4 px-4 py-3">
+                        <div class="dot bg-[#238636]"></div>
+                        <div class="flex-1 flex justify-between items-center">
+                            <div>
+                                <span class="text-[#f0f6fc] font-medium">Built double helix model (Finally!)</span>
+                                <span class="badge bg-breakthrough ml-2">Breakthrough</span>
+                                <div class="text-xs text-[#8b949e]">Watson & Crick • 1953</div>
+                            </div>
+                            <svg class="rotate-icon text-[#8b949e]" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06Z"></path></svg>
+                        </div>
+                    </div>
+                    <div class="details-panel text-sm text-[#8b949e]">
+                        "We’ve found the secret of life!" – Well, we found the geometry of it. 
+                        DNA is a twisted ladder. The rungs are base pairs (A-T, C-G), and the sides are sugar-phosphates. 
+                        <strong>Key Insight:</strong> The structure itself explains how it replicates. Form meets function.
+                    </div>
+                </div>
+
+                <div class="relative group cursor-pointer border-b border-[#30363d] hover:bg-[#1c2128]" onclick="this.classList.toggle('expanded')">
+                    <div class="commit-line"></div>
+                    <div class="flex items-center gap-4 px-4 py-3">
+                        <div class="dot bg-[#238636]"></div>
+                        <div class="flex-1 flex justify-between items-center">
+                            <div>
+                                <span class="text-[#f0f6fc] font-medium">DNA identified as genetic material</span>
+                                <div class="text-xs text-[#8b949e]">Avery et al. • 1944</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details-panel text-sm text-[#8b949e]">
+                        Stopped trying to make "Proteins" the inheritance molecule. It's not going to happen. 
+                        Experiments on bacteria show that only DNA carries the instructions to transform a cell.
+                    </div>
+                </div>
+
+                <div class="relative group cursor-pointer border-b border-[#30363d] hover:bg-[#1c2128]" onclick="this.classList.toggle('expanded')">
+                    <div class="commit-line"></div>
+                    <div class="flex items-center gap-4 px-4 py-3">
+                        <div class="dot bg-[#8957e5]"></div>
+                        <div class="flex-1 flex justify-between items-center">
+                            <div>
+                                <span class="text-[#f0f6fc] font-medium">Refactor: Rediscovered that monk's pea project</span>
+                                <span class="badge bg-rediscovered ml-2">Rediscovered</span>
+                                <div class="text-xs text-[#8b949e]">De Vries et al. • 1900</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details-panel text-sm text-[#8b949e]">
+                        Wait, someone already solved the inheritance math in 1865? 
+                        Found Gregor Mendel’s "stale" documentation on pea plants. 
+                        It turns out traits don't "blend" like paint; they are discrete units. 
+                        Merging <code>mendel-logic</code> into the <code>main</code> evolution theory.
+                    </div>
+                </div>
+
+                <div class="relative group cursor-pointer border-b border-[#30363d] hover:bg-[#1c2128]" onclick="this.classList.toggle('expanded')">
+                    <div class="commit-line"></div>
+                    <div class="flex items-center gap-4 px-4 py-3">
+                        <div class="dot bg-[#da3633]"></div>
+                        <div class="flex-1 flex justify-between items-center">
+                            <div>
+                                <span class="text-[#f0f6fc] font-medium">Added Pangenesis (Experimental)</span>
+                                <span class="badge bg-failed ml-2">Legacy Bug</span>
+                                <div class="text-xs text-[#8b949e]">Darwin • 1868</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details-panel text-sm text-[#8b949e]">
+                        Darwin here. I’m guessing there are these things called "gemmules" that leak out of your cells and collect in the... organs? 
+                        Look, I’m great at Natural Selection, but the hardware level of this project is still a mystery. 
+                        <em>Note: This commit failed several blood-test simulations. Revert pending.</em>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8 github-dark-border rounded-md bg-[#0d1117] p-8">
+            <h1 class="text-2xl font-bold mb-4 border-b border-[#30363d] pb-2">README.md</h1>
+            <p class="text-lg text-[#8b949e] mb-6 italic border-l-4 border-[#30363d] pl-4">
+                "Science is not a collection of truths, but a process of eliminating errors."
+            </p>
+            <p class="mb-4">
+                Welcome to the source code of <strong>Homo Sapiens</strong>. 
+                This project has been in active development for roughly 3.8 billion years. 
+                Most of the early commits were just lucky accidents (mutations), but we've recently started 
+                documenting the system.
+            </p>
+            <div class="bg-[#161b22] p-4 rounded-md border border-[#30363d]">
+                <code class="text-[#79c0ff]">Current Build Status: Stable. Genes are recognized as DNA sequences.</code>
+            </div>
+        </div>
+    </section>
+
+    <section id="tab-issues" class="hidden-tab">
+        <div class="github-dark-border rounded-md bg-[#161b22] divide-y divide-[#30363d]">
+            <div class="p-4 cursor-pointer hover:bg-[#1c2128]" onclick="this.classList.toggle('expanded')">
+                <div class="flex items-center gap-2 mb-1">
+                    <span class="text-[#3fb950]">●</span>
+                    <span class="font-bold text-white">How does a giraffe's neck actually get longer?</span>
+                </div>
+                <div class="text-xs text-[#8b949e]">#42 opened by Lamarck</div>
+                <div class="details-panel mt-3 border-l-2 border-[#30363d] pl-4 text-xs">
+                    <strong>Lamarck:</strong> "I think they stretch really hard and the changes save to the next generation." <br><br>
+                    <strong>Darwin:</strong> "Invalid logic. That's not how the variable 'Heredity' is scoped, Jean-Baptiste."
+                </div>
+            </div>
+            <div class="p-4 cursor-pointer hover:bg-[#1c2128]" onclick="this.classList.toggle('expanded')">
+                <div class="flex items-center gap-2 mb-1">
+                    <span class="text-[#3fb950]">●</span>
+                    <span class="font-bold text-white">Pangenesis does not match experimental evidence</span>
+                </div>
+                <div class="text-xs text-[#8b949e]">#9 opened by Galton</div>
+                <div class="details-panel mt-3 border-l-2 border-[#30363d] pl-4 text-xs">
+                    <strong>Galton:</strong> "I've been transfusing rabbit blood all day. No gemmules detected. Requesting a patch for Darwin's model."
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tab-pulls" class="hidden-tab">
+        <div class="github-dark-border rounded-md bg-[#161b22] divide-y divide-[#30363d]">
+            <div class="p-4">
+                <div class="flex items-center gap-2 mb-1">
+                    <span class="text-[#8957e5]">⎇</span>
+                    <span class="font-semibold text-white">Double helix structure implementation</span>
+                    <span class="bg-[#238636]/20 text-[#3fb950] text-[10px] px-1.5 rounded border border-[#238636]/40 uppercase">Merged</span>
+                </div>
+                <div class="text-xs text-[#8b949e] mb-2">#12 merged 1953 by watson-crick</div>
+                <div class="bg-[#0d1117] p-3 rounded text-xs text-[#8b949e]">
+                    <div class="mb-2"><span class="text-white font-bold">Reviewer_Franklin:</span> The phosphate groups must be on the outside. Your first draft had them in the center, which is chemically impossible.</div>
+                    <div><span class="text-white font-bold">WatsonCrick:</span> Hotfixed. Adjusted model to match your diffraction data (Photo 51).</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<script>
+    function showTab(tabName) {
+        document.querySelectorAll('main > section').forEach(s => s.classList.add('hidden-tab'));
+        document.querySelectorAll('header button').forEach(b => b.classList.remove('tab-active', 'text-[#f0f6fc]'));
+        document.getElementById('tab-' + tabName).classList.remove('hidden-tab');
+        document.getElementById('btn-' + tabName).classList.add('tab-active', 'text-[#f0f6fc]');
+    }
+</script>
+
+</body>
+</html>
